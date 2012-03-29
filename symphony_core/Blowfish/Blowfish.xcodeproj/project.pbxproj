@@ -1,0 +1,269 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FB25E864142069800033AD9D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB25E863142069800033AD9D /* Cocoa.framework */; };
+		FBC3C6001426A13F0011354A /* Blowfish.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC3C5FF1426A13F0011354A /* Blowfish.m */; };
+		FBCD747914AAE1BD0036E709 /* crypt_key_input.h in Headers */ = {isa = PBXBuildFile; fileRef = FBCD747514AAE1BD0036E709 /* crypt_key_input.h */; };
+		FBCD747A14AAE1BD0036E709 /* crypt_key_output.h in Headers */ = {isa = PBXBuildFile; fileRef = FBCD747614AAE1BD0036E709 /* crypt_key_output.h */; };
+		FBCD747B14AAE1BD0036E709 /* crypt.c in Sources */ = {isa = PBXBuildFile; fileRef = FBCD747714AAE1BD0036E709 /* crypt.c */; };
+		FBCD747C14AAE1BD0036E709 /* crypt.h in Headers */ = {isa = PBXBuildFile; fileRef = FBCD747814AAE1BD0036E709 /* crypt.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		FB25E860142069800033AD9D /* Blowfish.bundle */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = Blowfish.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB25E863142069800033AD9D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		FB25E866142069800033AD9D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		FB25E867142069800033AD9D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		FB25E868142069800033AD9D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		FB25E86B142069800033AD9D /* Blowfish-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Blowfish-Prefix.pch"; sourceTree = "<group>"; };
+		FB25E86C142069800033AD9D /* Blowfish.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Blowfish.h; sourceTree = "<group>"; };
+		FBC3C5FF1426A13F0011354A /* Blowfish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Blowfish.m; sourceTree = "<group>"; };
+		FBCD747514AAE1BD0036E709 /* crypt_key_input.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt_key_input.h; sourceTree = "<group>"; };
+		FBCD747614AAE1BD0036E709 /* crypt_key_output.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt_key_output.h; sourceTree = "<group>"; };
+		FBCD747714AAE1BD0036E709 /* crypt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = crypt.c; sourceTree = "<group>"; };
+		FBCD747814AAE1BD0036E709 /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FB25E85D142069800033AD9D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB25E864142069800033AD9D /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FB25E855142069800033AD9D = {
+			isa = PBXGroup;
+			children = (
+				FB25E869142069800033AD9D /* Blowfish */,
+				FB25E862142069800033AD9D /* Frameworks */,
+				FB25E861142069800033AD9D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FB25E861142069800033AD9D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FB25E860142069800033AD9D /* Blowfish.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FB25E862142069800033AD9D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FB25E863142069800033AD9D /* Cocoa.framework */,
+				FB25E865142069800033AD9D /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FB25E865142069800033AD9D /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FB25E866142069800033AD9D /* AppKit.framework */,
+				FB25E867142069800033AD9D /* CoreData.framework */,
+				FB25E868142069800033AD9D /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		FB25E869142069800033AD9D /* Blowfish */ = {
+			isa = PBXGroup;
+			children = (
+				FBCD747514AAE1BD0036E709 /* crypt_key_input.h */,
+				FBCD747614AAE1BD0036E709 /* crypt_key_output.h */,
+				FBCD747714AAE1BD0036E709 /* crypt.c */,
+				FBCD747814AAE1BD0036E709 /* crypt.h */,
+				FB25E86C142069800033AD9D /* Blowfish.h */,
+				FBC3C5FF1426A13F0011354A /* Blowfish.m */,
+				FB25E86A142069800033AD9D /* Supporting Files */,
+			);
+			path = Blowfish;
+			sourceTree = "<group>";
+		};
+		FB25E86A142069800033AD9D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FB25E86B142069800033AD9D /* Blowfish-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		FB25E85E142069800033AD9D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBCD747914AAE1BD0036E709 /* crypt_key_input.h in Headers */,
+				FBCD747A14AAE1BD0036E709 /* crypt_key_output.h in Headers */,
+				FBCD747C14AAE1BD0036E709 /* crypt.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		FB25E85F142069800033AD9D /* Blowfish */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB25E871142069800033AD9D /* Build configuration list for PBXNativeTarget "Blowfish" */;
+			buildPhases = (
+				FB25E85C142069800033AD9D /* Sources */,
+				FB25E85D142069800033AD9D /* Frameworks */,
+				FB25E85E142069800033AD9D /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Blowfish;
+			productName = Blowfish;
+			productReference = FB25E860142069800033AD9D /* Blowfish.bundle */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FB25E857142069800033AD9D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = FB25E85A142069800033AD9D /* Build configuration list for PBXProject "Blowfish" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = FB25E855142069800033AD9D;
+			productRefGroup = FB25E861142069800033AD9D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FB25E85F142069800033AD9D /* Blowfish */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FB25E85C142069800033AD9D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBC3C6001426A13F0011354A /* Blowfish.m in Sources */,
+				FBCD747B14AAE1BD0036E709 /* crypt.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		FB25E86F142069800033AD9D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		FB25E870142069800033AD9D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		FB25E872142069800033AD9D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_EXTENSION = bundle;
+				GCC_ENABLE_OBJC_GC = supported;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Blowfish/Blowfish-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		FB25E873142069800033AD9D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_EXTENSION = bundle;
+				GCC_ENABLE_OBJC_GC = supported;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Blowfish/Blowfish-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FB25E85A142069800033AD9D /* Build configuration list for PBXProject "Blowfish" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB25E86F142069800033AD9D /* Debug */,
+				FB25E870142069800033AD9D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB25E871142069800033AD9D /* Build configuration list for PBXNativeTarget "Blowfish" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB25E872142069800033AD9D /* Debug */,
+				FB25E873142069800033AD9D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FB25E857142069800033AD9D /* Project object */;
+}
