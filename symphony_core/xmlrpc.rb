@@ -18,7 +18,8 @@
 
 # ###License/Credits
 # This software is released under the [MIT] (http://www.opensource.org/licenses/MIT) License.
-# Please reffer to the [license](http://www.google.com) located at github.
+# Please reffer to the [license](http://www.google.com) located at github. This documentation is generated
+# using [Rocco](http://rtomayko.github.com/rocco/).
 
 
 # ###XML Remote Procedure Call
@@ -42,6 +43,7 @@
 #   - base64 (for binary data)
 #   - arrays
 #   - structs
+#
 
 #The following is an example XMLRPC request where the method *listener.authenticateListener* is 
 #invoked on a remote server given the parameters *john.doe@mail.com* and *password123*.
@@ -279,29 +281,34 @@ module XMLRPC
         else
           response << :invalid_boolean
         end
+
+      # When `value` is a XMLRPC *\<array\>* type, recursion is used to parse each item in the XMLRPC array. First
+      # a new array is created. Then, for each item in `value`, `parse_value` is called like following:
+      #
+      # `parse_value(i, array)` where `i` is an item in the XMLRPC array and `array` is the newly crated array. 
+      # Because the second argument `array` is passed, `parse_value` will append parsed items in the XMLRPC array 
+      # into the `array` variable (which will be appended to `@response` eventually).
       when 'array'
         array = Array.new
         value.elements.each 'data/value/*' {|i| parse_value (i, array)}
         response << array
+
+      # When `value` is a XMLRPC *\<struct\>* type, recursion is again used to parse XMLRPC struct type to a native
+      # Ruby hash. First two arrays are created, `hash_key` and `hash_values`. Then `hash_keys` is populated with 
+      # each *'member/name'* of the XMLRPC struct. Then `hash_value` is populated with each *'member/value'* of the 
+      # XMLRPC struct. 
+      # 
+      # Because some XMLRPC response servers does not strictly adhere to XMLRPC specifications, extra work is done 
+      # to make `Parser` compatible with such implementations. When the *\<value\>* tag is empty, `nil` is inserted
+      # into `hash_values`. When *\<value\>* tag is not empty, the data enclosed in *\<value\>* tag is treated as a
+      # plain string. Finally, the two arrays, `hash_values` and `hash_keys` is zipped into a Ruby hash an appended
+      # to `response`.
       when 'struct'
         hash_keys   = Array.new
         hash_values = Array.new
 
         value.elements.each 'member/name' {|i| hash_keys << i.text}
 
-        # Pandora backend appears to be written in java. And xml response does not seem to adhear to
-        # XMLRPC spec. For example, pandora may return a struct in this form 
-        #     <struct>
-        #       <member>
-        #         <name>soda_pop</name>
-        #         <value>SUGAR</value>      <---- Text in '<value>' will be stored as a string
-        #         </member>
-        #
-        #       <member>
-        #         <name>someToken</name>
-        #         </value>         <------------- Empty values will be represented as 'nil'
-        #         </member>
-        #      </struct>
         value.elements.each 'member/value' do |i|
           if i.has_text?
             hash_values << i.text
