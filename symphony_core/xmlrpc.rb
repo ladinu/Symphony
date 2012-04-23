@@ -18,8 +18,8 @@
 
 # ###License/Credits
 # This software is released under the [MIT] (http://www.opensource.org/licenses/MIT) License.
-# Please reffer to the [license](http://www.google.com) located at github. This documentation is generated
-# using [Rocco](http://rtomayko.github.com/rocco/).
+# Please reffer to the [license](https://github.com/ladinu/Symphony/blob/master/symphony_core/license.txt) 
+# located at github. This documentation is generated using [Rocco](http://rtomayko.github.com/rocco/).
 
 
 # ###XML Remote Procedure Call
