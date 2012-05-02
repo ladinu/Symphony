@@ -27,7 +27,7 @@ class Crypt
 
   def encrypt(str)
     encrypted_str = @blowfish.encrypt(str)
-    encrypted_str = encrypted_str.clone # Fix nsstring issue
+    encrypted_str = encrypted_str.clone # Fix NSString issue
   end
 
   def decrypt(str)

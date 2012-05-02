@@ -30,7 +30,7 @@ class Request
 
   def initialize(host=nil, port=nil, path=nil, headers=nil, timeout=nil)
 
-    @version = 33
+    @version = 34
     @host    = host || "www.pandora.com"
     @path    = path || "/radio/xmlrpc/v#{@version}?"
     @port    = port || 80
