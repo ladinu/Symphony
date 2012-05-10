@@ -1,4 +1,4 @@
-# This XMLRPC module is easy to use and liteweight and it is written in ≈200 lines of [Ruby][rb]
+# This XMLRPC module is easy to use and liteweight and written in 200 lines of [Ruby][rb]
 # code. I decided to write this module for the following reasons:
 #
 #
@@ -7,7 +7,7 @@
 # this module to get fimiliar with XMLRPC and Ruby.
 #
 # Second, I needed a simple XMLRPC library. Ruby's default XMlRPC library is hard to use and does
-# not offer easy access to internal XMLRPC data. Also Ruby's default XMLRPC library is a good choice
+# not offer easy access to internal XMLRPC data. Also Ruby's default XMLRPC library is not a good choice
 # beacuse XMLRPC calls to Pandora servers need to be encrypted and responses to be decrypted.
 
 
@@ -18,9 +18,9 @@
 #[rb]: http://www.ruby-lang.org/
 
 # ###License/Credits
-# This software is released under the [MIT] (http://www.opensource.org/licenses/MIT) License.
+# I release this software under the [MIT] (http://www.opensource.org/licenses/MIT) license.
 # Please reffer to the [license](https://github.com/ladinu/Symphony/blob/master/symphony_core/license.txt) 
-# located at github. This documentation is generated using [Rocco](http://rtomayko.github.com/rocco/).
+# located at github. I also used [Rocco](http://rtomayko.github.com/rocco/) to generate this doccumentation.
 
 
 # ###XMLRPC Overview
@@ -70,7 +70,7 @@ module XMLRPC
   class Call
     attr_reader :xml
 
-    # `new_call(method, *params)` create a XMLRPC request string. Argument `*param` is optional. `*` is used in `new_call` because 
+    # `new_call(method, *params)` creates a XMLRPC request string. Argument `*param` is optional. `*` is used in `new_call` because 
     # a XMLRPC request can have multiple parameters. If `*param` is provided, `*param` must contain XMLRPC supported data 
     # types/structures.
     #
@@ -115,7 +115,7 @@ module XMLRPC
       end
     end
 
-    # Method `make_xml(params)` create the XMLRPC request body. `make_xml_value(i)` is called for every item in `params`.
+    # Method `make_xml(params)` creates the XMLRPC request body. `valid_method_name?` call  `make_xml_value(i)` for every item in `params`.
     def make_xml(params)
 
       @xml = "<?xml version=\"1.0\" ?><methodCall><methodName>#{@method}</methodName><params>"
@@ -130,8 +130,8 @@ module XMLRPC
       @xml << "</params></methodCall>"
     end
       
-    # First, `make_xml_value(i)` check the data type of `i`. Then `i` is enclosed in appropriate data tags. If data type of
-    # `i` is a *hash* or an *array*, FIXME: recursion is used to construct the data tags.
+    # First, `make_xml_value(i)` check the data type of `i`. Then `make_xml` enclose `i` in appropriate data tags. If data type of
+    # `i` is a *hash* or an *array*, then `make_xml_value(i)` recursivly construct the data tags.
     #
     # For example:
     # 
@@ -172,8 +172,7 @@ module XMLRPC
 
 
   # ####Parser
-  # ####Revision 2: B
-  # `Parser` use XML parsing module [REXML][rx] and language [XPath][xp] to parse XMLRPC responses. XMLRPC response data is converted into Ruby
+  # `Parser` use the XML parsing module [REXML][rx] and language [XPath][xp] to parse XMLRPC responses. Parser also convert XMLRPC response data into Ruby
   # data types/structures.
   #
   # Note that parsing large XMLRPC responses are very time consuming. This is beacuse REXML is written in pure Ruby.
@@ -213,7 +212,7 @@ module XMLRPC
 
       # If a fault XMLRPC response was not found, then `parse` method looks for the path
       # `methodResponse/params/param/value`. If such path exist, then `parse` method continue parsing 
-      # XMLRPC response values. `parse_value` method is called for each scalar values such as string, int, 
+      # XMLRPC response values. `parse` call `parse_value` for each scalar values such as string, int, 
       # bool etc.
       elsif @xml_response.elements.each 'methodResponse/params/param/value' do |i|
 
@@ -243,11 +242,11 @@ module XMLRPC
       end
     end
 
-    # `parse_value` method accept two values: `value` and `response` (where `response` is optional). `parse` method pass `value` which 
+    # `parse_value` accept two values: `value` and `response` (where `response` is optional). `parse` method pass `value` which 
     # is a REXML data type.
     def parse_value (value, response=nil)
 
-      # First, `parse_value` method checks if a diffrent `response` variable is given. If not, `parse_value` 
+      # First, `parse_value` check if a diffrent `response` variable is given. If not, `parse_value` 
       # use the default `@response` variable. Then `parse_value` store `value` name in `value_type`. 
       # For example, if `value` was *\<double\>2.71828183\</double\>*, then `value_type` would be *double*.
       response = response || @response  # When the value is a list, we do not want to effect the response list
@@ -275,12 +274,11 @@ module XMLRPC
           response << :invalid_boolean
         end
 
-      # ####Revision 2: A
-      # `parse_value` method parse each item in `value` recursivly when `value` type is a XMLRPC *\<array\>*.
-      # First, `parse_value` create a new array. Then `parse_value` call itself for each item in `value` like 
+      # `parse_value` parse each item in `value` recursivly when `value` type is a XMLRPC *\<array\>*.
+      # First, `parse_value` creates a new array. Then `parse_value` call itself for each item in `value` like 
       # following: `parse_value(i, array)` where `i` is an item in the XMLRPC array and `array` is the newly crated array.
       #
-      # Because the argument `array` is passed to `parse_value`, `parse_value` append parsed XMLRPC array items to
+      # Because `parse_value` pass `array` to itself, `parse_value` append parsed XMLRPC array items to
       # `array` variable (which will be appended to `@response` later).
       when 'array'
         array = Array.new
@@ -288,8 +286,8 @@ module XMLRPC
         response << array
 
       # `parse_value` method also parse XMLRPC *<struct\>* recursivly. XMLRPC structs are converted into Ruby hashes.
-      # First, `parse_value` create two arrays named `hash_key` and `hash_values`. Then `hash_keys` is populated with 
-      # each *'member/name'* of the XMLRPC struct. Then `hash_value` is populated with each *'member/value'* of the 
+      # First, `parse_value` creates two arrays named `hash_key` and `hash_values`. Then `parse_value` poppulate  `hash_keys` with 
+      # each *'member/name'* of the XMLRPC struct. Then `parse_value` populate `hash_value` with each *'member/value'* of the 
       # XMLRPC struct. 
       # 
       #
@@ -326,3 +324,13 @@ module XMLRPC
   end
 
 end
+
+
+# ####Word Count: 
+# 1193
+
+# ####Active voice sentences:
+#
+#   - `Parser` use the XML parsing module [REXML][rx] and language [XPath][xp] to parse XMLRPC responses.
+#   - `parse_value` parse each item in `value` recursivly when `value` type is a XMLRPC *\<array\>*.
+#   - `Parser` has one public atribute named `@response`.
