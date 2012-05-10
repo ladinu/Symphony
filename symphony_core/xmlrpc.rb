@@ -327,7 +327,7 @@ end
 
 
 # ####Word Count: 
-# 1193
+# 1057
 
 # ####Active voice sentences:
 #
